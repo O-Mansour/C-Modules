@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:14:54 by omansour          #+#    #+#             */
-/*   Updated: 2023/11/18 21:11:59 by omansour         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:29:42 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 Fixed::Fixed() : value (0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& x)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = x;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		value = other.value;
 	return *this;
@@ -33,30 +30,25 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;	
 	return this->value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;	
 	value = raw;
 }
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
 	value = n * (1 << fractionalBits);
 }
 
 Fixed::Fixed(const float n)
 {
-	std::cout << "Float constructor called" << std::endl;
 	value = roundf(n * (1 << fractionalBits));	
 }
 
@@ -80,42 +72,42 @@ bool Fixed::operator>(const Fixed& obj) const
 {
 	if (value > obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 bool Fixed::operator<(const Fixed& obj) const
 {
 	if (value < obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 bool Fixed::operator>=(const Fixed& obj)
 {
 	if (value >= obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 bool Fixed::operator<=(const Fixed& obj)
 {
 	if (value <= obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 bool Fixed::operator==(const Fixed& obj)
 {
 	if (value == obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 bool Fixed::operator!=(const Fixed& obj)
 {
 	if (value != obj.value)
 		return true;
-	return false;	
+	return false;
 }
 
 Fixed Fixed::operator+(const Fixed& obj)
