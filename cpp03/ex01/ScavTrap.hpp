@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:27:34 by omansour          #+#    #+#             */
-/*   Updated: 2023/11/25 20:21:00 by omansour         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:10:03 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : protected ClapTrap
+class ScavTrap : public ClapTrap
 {
 public:
 	ScavTrap();
+	ScavTrap(const ScavTrap& other);
+	ScavTrap& operator=(const ScavTrap& other);
 	~ScavTrap();
+
+	ScavTrap(std::string n);
+	void attack(const std::string& target);
+	void guardGate();
 };
-
-
-ScavTrap::ScavTrap()
-{
-}
-
-ScavTrap::~ScavTrap()
-{
-}
-
 
 #endif

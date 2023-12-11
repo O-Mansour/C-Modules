@@ -5,27 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 20:20:09 by omansour          #+#    #+#             */
-/*   Updated: 2023/11/24 16:22:22 by omansour         ###   ########.fr       */
+/*   Created: 2023/11/24 16:27:25 by omansour          #+#    #+#             */
+/*   Updated: 2023/11/28 14:44:18 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ClapTrap one("one");
-	ClapTrap two("two");
-	
-	one.attack("two");
-	two.takeDamage(7);
-	one.attack("two");
-	two.takeDamage(7);
-	// two died
-	two.attack("one");
-	two.beRepaired(7);
-	two.takeDamage(7);
+	ClapTrap clap("clap");
+	ScavTrap scav("scav");
+	FragTrap frag("frag");
 
-	one.beRepaired(7);
+	clap.attack("scav");
+	scav.attack("frag");
+	frag.takeDamage(20);
+	frag.attack("clap");
+	clap.takeDamage(30);
+
+	clap.beRepaired(10);
+	scav.guardGate();
+	frag.beRepaired(20);
+	frag.highFivesGuys();
+
 	return 0;
 }

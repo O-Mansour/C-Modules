@@ -5,25 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: omansour <omansour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/23 20:20:29 by omansour          #+#    #+#              #
-#    Updated: 2023/11/26 09:40:59 by omansour         ###   ########.fr        #
+#    Created: 2023/11/24 16:26:59 by omansour          #+#    #+#              #
+#    Updated: 2023/11/29 00:25:17 by omansour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# SRCS		=	main.cpp ClapTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
-OBJS		=	main.o ClapTrap.o
+INCLUDES	=	ClapTrap.hpp ScavTrap.hpp
+
+OBJS		=	${SRCS:.cpp=.o}
 
 CXX			=	c++
 
-CPPFLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
-NAME		=	ClapTrap
+NAME		=	ScavTrap
 
 all		:	${NAME}
 
 ${NAME}	:	${OBJS}
-	${CXX} ${CPPFLAGS} ${OBJS} -o ${NAME}
+	${CXX} ${CXXFLAGS} ${OBJS} -o ${NAME}
+
+%.o		:	%.cpp ${INCLUDES}
+	${CXX} ${CXXFLAGS} -c $< -o $@
 
 clean	:
 	rm -f ${OBJS}
