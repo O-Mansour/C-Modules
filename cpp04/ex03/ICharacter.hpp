@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:46:21 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/15 16:39:28 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/16 21:35:25 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
