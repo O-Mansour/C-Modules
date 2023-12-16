@@ -6,18 +6,17 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:59:21 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/16 20:02:55 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/17 00:41:09 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure") {}
-Cure::Cure(const Cure& other) { *this = other; }
+Cure::Cure(const Cure& other) : AMateria("cure") { *this = other; }
 Cure& Cure::operator=(const Cure& other)
 {
-	if (this != &other)
-		type = other.type;
+	(void) other;
 	return *this;
 }
 Cure::~Cure() {}

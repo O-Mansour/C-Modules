@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:22:11 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/14 14:00:07 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/17 00:24:03 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat() : Animal() {
 	type = "Cat";
 }
 
-Cat::Cat(const Cat& other) {
+Cat::Cat(const Cat& other) : Animal() {
 	std::cout << "It's the copy constructor of Cat" << std::endl;
 	*this = other;
 }

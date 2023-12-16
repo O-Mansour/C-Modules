@@ -6,18 +6,17 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:59:25 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/16 20:03:11 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/17 00:40:56 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {}
-Ice::Ice(const Ice& other) { *this = other; }
+Ice::Ice(const Ice& other) : AMateria("ice") { *this = other; }
 Ice& Ice::operator=(const Ice& other)
 {
-	if (this != &other)
-		type = other.type;
+	(void) other;
 	return *this;
 }
 Ice::~Ice() {}

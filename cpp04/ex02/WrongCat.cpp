@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:22:40 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/14 14:12:57 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/17 00:32:57 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::WrongCat() : WrongAnimal() {
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat& other) {
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal() {
 	std::cout << "It's the copy constructor of WrongCat" << std::endl;
 	*this = other;
 }
