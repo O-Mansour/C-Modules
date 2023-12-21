@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:51:00 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/21 10:15:16 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:00:17 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,6 @@ int main()
 		boss.signForm(PPF);
 		boss.executeForm(PPF);
 		std::cout << PPF;
-	}
-	catch (Bureaucrat::GradeTooHighException & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException & e)
-	{
-		std::cout << e.what() << std::endl;
 	}
 	catch (std::exception & e)
 	{

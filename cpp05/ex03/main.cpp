@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:51:00 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/21 14:43:09 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:03:17 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ int main()
 	try
 	{
 		Bureaucrat boss("boss", 1);
-		Bureaucrat bob("bob", 40);
+		Bureaucrat melhadou("melhadou", 40);
 		Intern someRandomGuy;
 		AForm* fPtr;
-		
+
 		std::cout << "-----------------" << std::endl;
 
 		fPtr = someRandomGuy.makeForm("shrubbery creation", "Home");
-		bob.signForm(*fPtr);
-		bob.executeForm(*fPtr);
+		melhadou.signForm(*fPtr);
+		melhadou.executeForm(*fPtr);
 		std::cout << *fPtr;
 
 		std::cout << "-----------------" << std::endl;
 
 		fPtr = someRandomGuy.makeForm("robotomy request", "Bender");
-		bob.signForm(*fPtr);
-		bob.executeForm(*fPtr);
+		melhadou.signForm(*fPtr);
+		melhadou.executeForm(*fPtr);
 		std::cout << *fPtr;
 
 		std::cout << "-----------------" << std::endl;
@@ -45,14 +45,6 @@ int main()
 		boss.signForm(*fPtr);
 		boss.executeForm(*fPtr);
 		std::cout << *fPtr;
-	}
-	catch (Bureaucrat::GradeTooHighException & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException & e)
-	{
-		std::cout << e.what() << std::endl;
 	}
 	catch (std::exception & e)
 	{

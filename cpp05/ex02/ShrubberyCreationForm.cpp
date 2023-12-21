@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:18:32 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/21 10:38:56 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:01:19 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		outfile << "       | |       " << std::endl;
 		outfile.close();
 	}
+	else
+		throw std::runtime_error("CANNOT OPEN THE FILE");
 }
