@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:59:18 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/16 20:09:41 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:20:05 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i])
+		bool already = false;
+		for (int j = 0; j < i; j++)
 		{
-			delete inventory[i];
-			inventory[i] = NULL;
+			if (inventory[j] == inventory[i])
+				already = true;
 		}
+		if (!already && inventory[i])
+			delete inventory[i];
 	}
 }
 
