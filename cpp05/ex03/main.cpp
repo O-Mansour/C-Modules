@@ -6,7 +6,7 @@
 /*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 21:51:00 by omansour          #+#    #+#             */
-/*   Updated: 2023/12/21 18:03:17 by omansour         ###   ########.fr       */
+/*   Updated: 2023/12/25 19:52:48 by omansour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main()
 		melhadou.signForm(*fPtr);
 		melhadou.executeForm(*fPtr);
 		std::cout << *fPtr;
+		delete fPtr;
 
 		std::cout << "-----------------" << std::endl;
 
@@ -38,6 +39,7 @@ int main()
 		melhadou.signForm(*fPtr);
 		melhadou.executeForm(*fPtr);
 		std::cout << *fPtr;
+		delete fPtr;
 
 		std::cout << "-----------------" << std::endl;
 
@@ -45,6 +47,8 @@ int main()
 		boss.signForm(*fPtr);
 		boss.executeForm(*fPtr);
 		std::cout << *fPtr;
+		delete fPtr;
+
 	}
 	catch (std::exception & e)
 	{
