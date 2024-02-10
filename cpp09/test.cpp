@@ -55,14 +55,33 @@
 // }
 
 
+// #include <iostream>
+// #include <map>
+
+// int main()
+// {
+//     std::pair<std::string, float> ttt;
+//     if (ttt.first.empty())
+//         return 1;
+//     std::cout << ttt.first << "\t" << ttt.second << std::endl;
+//     return 0;
+// }
+
+
 #include <iostream>
-#include <map>
+#include <sstream>
+#include <string>
 
 int main()
 {
-    std::pair<std::string, float> ttt;
-    if (ttt.first.empty())
-        return 1;
-    std::cout << ttt.first << "\t" << ttt.second << std::endl;
+    std::string str = "+00+26";
+    std::istringstream iss(str);
+    unsigned int number;
+
+    if (!(iss >> number))
+        std::cout << "Conversion failed." << std::endl;
+    else
+        std::cout << "The extracted integer : " << number << std::endl;
+
     return 0;
 }
