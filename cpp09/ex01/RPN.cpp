@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:11:16 by omansour          #+#    #+#             */
-/*   Updated: 2024/01/31 22:27:28 by omansour         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "RPN.hpp"
 
 RPN::RPN()
@@ -45,7 +33,7 @@ bool	is_operator(char c)
 	return false;
 }
 
-int	do_operation(int nb1, int nb2, char op)
+double	do_operation(double nb1, double nb2, char op)
 {
 	if (op == '+')
 		return (nb2 + nb1);
@@ -70,11 +58,11 @@ void RPN::calculate(const char *input)
 		{
 			if (nbr_stack.size() < 2)
 				show_error("Error");
-			int nb1 = nbr_stack.top();
+			double nb1 = nbr_stack.top();
 			nbr_stack.pop();
-			int nb2 = nbr_stack.top();
+			double nb2 = nbr_stack.top();
 			nbr_stack.pop();
-			int res = do_operation(nb1, nb2, input[i]);
+			double res = do_operation(nb1, nb2, input[i]);
 			nbr_stack.push(res);
 		}
 	}

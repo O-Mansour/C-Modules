@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 09:03:53 by omansour          #+#    #+#             */
-/*   Updated: 2024/01/30 17:05:45 by omansour         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
 
 void	show_error(const std::string& err_msg)
@@ -23,7 +11,7 @@ float strToFloat(const std::string& str)
 	float res;
 	std::istringstream iss(str);
 	if (!(iss >> res))
-		show_error("EXPECTED A VALID NUMBER");
+		show_error("Error : EXPECTED A VALID NUMBER");
 	return res;
 }
 
@@ -33,7 +21,7 @@ std::pair<std::string,float> split_string(const std::string& input, std::string 
 	std::size_t pos = input.find(delimiter);
 
 	if (pos == std::string::npos)
-		show_error("NOT THE EXPECTED FORM");
+		show_error("Error : NOT THE EXPECTED FORM");
 	res.first = input.substr(0, pos);
 	res.second = strToFloat(input.substr(pos + delimiter.length()));
 	return res;
@@ -59,12 +47,12 @@ BitcoinExchange::BitcoinExchange()
 	std::ifstream d_base("data.csv");
 	
 	if (!d_base.is_open())
-		show_error("NO DATABASE FILE");
+		show_error("Error : NO DATABASE FILE");
 	std::string buffer;
 	std::getline(d_base, buffer);
 	if (buffer.compare("date,exchange_rate") != 0 || d_base.eof() 
 		|| d_base.fail())
-		show_error("NO VALID CONTENT IN THE DATABASE FILE");
+		show_error("Error : NO VALID CONTENT IN THE DATABASE FILE");
 	while(std::getline(d_base, buffer))
 		exchange_map.insert(split_string(buffer, ","));
 	d_base.close();
@@ -110,7 +98,7 @@ void BitcoinExchange::show_value(const char *in)
 	std::getline(infile, buffer);
 	if (buffer.compare("date | value") != 0 || infile.eof()
 		|| infile.fail())
-		show_error("NO VALID CONTENT IN THE INPUT FILE");
+		show_error("Error : NO VALID CONTENT IN THE INPUT FILE");
 	while (std::getline(infile, buffer))
 	{
 		std::pair<std::string, float> pr = split_input(buffer, " | ");
@@ -130,13 +118,4 @@ void BitcoinExchange::show_value(const char *in)
 		std::cout << pr.first << " => " << pr.second << " = " << pr.second * price << std::endl;
 	}
 	infile.close();
-	/*---------------------------------------------
-	---------To print the database------------
-	-----------------------------------------------*/
-
-	// (void) in;
-	// std::map<std::string, float>::iterator it = exchange_map.begin();
-	// for (; it != exchange_map.end() ; it++)
-	// 	std::cout << it->first << "\t" << std::fixed
-	// 		<< std::setprecision(2) << it->second << std::endl;
 }

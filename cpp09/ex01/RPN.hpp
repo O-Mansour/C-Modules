@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: omansour <omansour@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:11:19 by omansour          #+#    #+#             */
-/*   Updated: 2024/01/31 22:30:09 by omansour         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef RPN_HPP
 # define RPN_HPP
 
@@ -20,7 +8,7 @@
 class RPN
 {
 private:
-	std::stack<int> nbr_stack;
+	std::stack<double> nbr_stack;
 public:
 	RPN();
 	RPN(const RPN& other);
